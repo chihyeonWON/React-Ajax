@@ -20,7 +20,10 @@ class Nav extends Component {
       var li = this.state.list[i];
       listTag.push(
         <li key={li.id}>
-          <a href={li.id}>
+          <a href={li.id} data-id={li.id} onClick={function(e){
+            e.preventDefault();
+            this.props.onClick(e.target.dataset.id);
+          }.bind(this )}>
             {li.title}
           </a>
         </li>
