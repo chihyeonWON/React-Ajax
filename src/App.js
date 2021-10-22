@@ -18,7 +18,13 @@ class Nav extends Component {
     var listTag = [];
     for(var i=0; i<this.state.list.length; i++){
       var li = this.state.list[i];
-      listTag.push(<li key={li.id}><a href={li.id}>{li.title}</a></li>);
+      listTag.push(
+        <li key={li.id}>
+          <a href={li.id}>
+            {li.title}
+          </a>
+        </li>
+      );
     }
     return(
       <nav>
@@ -49,7 +55,9 @@ class App extends Component {
      return(
       <div className="App">
         <h1>WEB</h1>
-        <Nav></Nav>
+        <Nav onClick={function(id){
+          console.log(id);
+        }.bind(this)}></Nav>
         <Article title={this.state.article.title} desc={this.state.article.desc}></Article>
       </div>
     );
