@@ -1,6 +1,15 @@
 import React, { Component } from 'react';
 
 class Nav extends Component {
+  componentDidMount(){
+    fetch('list.json')
+    .then(function(result){ 
+      return result.json(); // Convert Json Text to Javascript object
+    })
+    .then(function(json) {
+      console.log(json);
+    }.bind(this));
+  }
   render() {
     return(
       <nav>
