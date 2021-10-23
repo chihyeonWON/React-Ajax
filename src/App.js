@@ -37,6 +37,12 @@ class Article extends Component{
     )
   }
 }
+
+class NowLoading extends Component{
+  render(){
+    return <div>Now Loading...</div>
+  }
+}
 class App extends Component {
   state = {
     article:{title:'Welcome', desc:'Hello React & Ajax'},
