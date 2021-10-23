@@ -82,7 +82,7 @@ class App extends Component {
             })
           }.bind(this));
         }.bind(this)}></Nav>
-        <Article title={this.state.article.title} desc={this.state.article.desc}></Article>
+        <Article title={this.state.article.item.title} desc={this.state.article.item.desc}></Article>
       </div>
     );
   }
