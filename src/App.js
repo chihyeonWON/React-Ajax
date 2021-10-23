@@ -64,8 +64,8 @@ class App extends Component {
       this.setState({list:{
         items:json,
         isLoading:false
-      }});
-    }.bind(this))
+      }})
+    }.bind(this));
   }
   render() {
      return(
@@ -79,8 +79,10 @@ class App extends Component {
           .then(function(json){
             this.setState({
               article:{
-                title:json.title,
-                desc:json.desc
+                item: {
+                  title:json.title,
+                  desc:json.desc
+                }
               }
             })
           }.bind(this));
