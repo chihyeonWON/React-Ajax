@@ -45,8 +45,14 @@ class NowLoading extends Component{
 }
 class App extends Component {
   state = {
-    article:{title:'Welcome', desc:'Hello React & Ajax'},
-    list:[]
+    article:{
+      item:{title:'Welcome', desc:'Hello, React & Ajax'},
+      isLoading:false
+    },
+    list:{
+      items:[],
+      isLoading:false
+    }
   }
   componentDidMount(){
     fetch('list.json')
