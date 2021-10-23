@@ -95,11 +95,18 @@ class App extends Component {
         }.bind(this)}></Nav>
     }
 
+    var ArticleTag = null;
+    if(this.state.article.isLoading) {
+      ArticleTag = <NowLoading></NowLoading>
+    } else {
+      ArticleTag = <Article title={this.state.article.item.title} desc={this.state.article.item.desc}></Article>
+    }
+
      return(
       <div className="App">
         <h1>WEB</h1>
         {NavTag}
-        <Article title={this.state.article.item.title} desc={this.state.article.item.desc}></Article>
+        {ArticleTag}
       </div>
     );
   }
