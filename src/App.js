@@ -82,7 +82,8 @@ class App extends Component {
                 item: {
                   title:json.title,
                   desc:json.desc
-                }
+                },
+                isLoading:false
               }
             })
           }.bind(this));
