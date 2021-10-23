@@ -61,7 +61,10 @@ class App extends Component {
     })
     .then(function(json){
       console.log(json);
-      this.setState({list:json});
+      this.setState({list:{
+        items:json,
+        isLoading:false
+      }});
     }.bind(this))
   }
   render() {
