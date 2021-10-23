@@ -68,10 +68,11 @@ class App extends Component {
     }.bind(this));
   }
   render() {
-     return(
-      <div className="App">
-        <h1>WEB</h1>
-        <Nav list={this.state.list} onClick={function(id){
+    var NavTag = null;
+    if(this.state.list.isLoading) {
+      NavTag = <NowLoading></NowLoading>
+    } else {
+      NavTag = <Nav list={this.state.list} onClick={function(id){
           fetch(id+'.json')
           .then(function(result){
             return result.json();
@@ -88,6 +89,12 @@ class App extends Component {
             })
           }.bind(this));
         }.bind(this)}></Nav>
+    }
+
+     return(
+      <div className="App">
+        <h1>WEB</h1>
+        {NavTag}
         <Article title={this.state.article.item.title} desc={this.state.article.item.desc}></Article>
       </div>
     );
