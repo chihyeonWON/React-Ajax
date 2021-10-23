@@ -66,7 +66,7 @@ class App extends Component {
       this.setState({list:{
         items:json,
         isLoading:false
-      }})
+      }});
     }.bind(this));
   }
   render() {
@@ -74,17 +74,17 @@ class App extends Component {
     if(this.state.list.isLoading) {
       NavTag = <NowLoading></NowLoading>
     } else {
-      NavTag = <Nav list={this.state.list} onClick={function(id){
+      NavTag = <Nav list={this.state.list.items} onClick={function(id){
         var newArticle = Object.assign({}, this.state.article, {isLoading:true});
         this.setState({article:newArticle});
           fetch(id+'.json')
-          .then(function(result){
+          .then(function(result){ 
             return result.json();
           })
           .then(function(json){
             this.setState({
               article:{
-                item: {
+                item:{
                   title:json.title,
                   desc:json.desc
                 },
